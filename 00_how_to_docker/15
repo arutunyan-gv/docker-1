@@ -1,0 +1,9 @@
+docker run \
+--detach \
+--name roach-warden \
+--publish 8081:80 \
+-e MYSQL_USER=root \
+-e MYSQL_PASSWORD=Kerrigan \
+-e PMA_HOST=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' spawning-pool) \
+phpmyadmin/phpmyadmin
+

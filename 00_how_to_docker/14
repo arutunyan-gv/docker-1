@@ -1,0 +1,10 @@
+docker run \
+--detach \
+--name lair \
+--publish 8080:80 \
+-e WORDPRESS_DB_HOST=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' spawning-pool) \
+-e WORDPRESS_DB_USER=root \
+-e WORDPRESS_DB_PASSWORD=Kerrigan \
+-e WORDPRESS_DB_NAME=zerglings \
+wordpress
+
